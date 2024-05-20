@@ -210,6 +210,3 @@ Markdown(result)
 # 
 # ### you will pass "llm" to your agent function
 # ```
-
-# ### For using Llama locally with Ollama and more, checkout the crewAI
-# documentation on [Connecting to any LLM](https://docs.crewai.com/how-to/LLM-Connections/).

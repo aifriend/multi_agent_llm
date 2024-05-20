@@ -1,9 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # L3: Multi-agent Customer Support Automation
-# 
-# In this lesson, you will learn about the six key elements which help make Agents perform even better:
+# # Multi-agent Customer Support Automation
 # - Role Playing
 # - Focus
 # - Tools
@@ -11,7 +9,6 @@
 # - Guardrails
 # - Memory
 
-# The libraries are already installed in the classroom. If you're running this notebook on your own machine, you can install the following:
 # ```Python
 # !pip install crewai==0.28.8 crewai_tools==0.1.6 langchain_community==0.0.29
 # ```
@@ -70,7 +67,9 @@ support_quality_assurance_agent = Agent(
 
 # * **Role Playing**: Both agents have been given a role, goal and backstory.
 # * **Focus**: Both agents have been prompted to get into the character of the roles they are playing.
-# * **Cooperation**: Support Quality Assurance Agent can delegate work back to the Support Agent, allowing for these agents to work together.
+# * **Cooperation**: Support Quality Assurance Agent can delegate work back to the Support Agent,
+
+# allowing for these agents to work together.
 
 # ## Tools, Guardrails and Memory
 # 
@@ -179,10 +178,12 @@ crew = Crew(
 
 # ### Running the Crew
 # 
-# **Note**: LLMs can provide different outputs for they same input, so what you get might be different than what you see in the video.
+# **Note**: LLMs can provide different outputs for they same input,
+# so what you get might be different than what you see in the video.
 # 
 # #### Guardrails
-# - By running the execution below, you can see that the agents and the responses are within the scope of what we expect from them.
+# - By running the execution below, you can see that the agents and
+# the responses are within the scope of what we expect from them.
 
 inputs = {
     "customer": "DeepLearningAI",

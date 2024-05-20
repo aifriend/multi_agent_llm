@@ -1,16 +1,11 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # L4: Tools for a Customer Outreach Campaign
-#
-# In this lesson, you will learn more about Tools. You'll focus on three key elements of Tools:
+# # Tools for a Customer Outreach Campaign
 # - Versatility
 # - Fault Tolerance
 # - Caching
 
-# The libraries are already installed in the classroom.
-# If you're running this notebook on your own machine, you can install the following:
-# ```Python
 # !pip install crewai==0.28.8 crewai_tools==0.1.6 langchain_community==0.0.29
 
 # Warning control
@@ -187,9 +182,6 @@ crew = Crew(
 )
 
 # ## Running the Crew
-#
-# **Note**: LLMs can provide different outputs for they same input,
-# so what you get might be different than what you see in the video.
 
 inputs = {
     "lead_name": "DeepLearningAI",
