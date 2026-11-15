@@ -31,24 +31,41 @@ Throughout the course, you’ll work with crewAI, an open source library designe
 
 ## Environment
 
-Setup:
+Install the dependencies with Poetry (Python 3.11 or 3.12 is required):
 
-    make requirements 
+    make setup
 
-## Loading datasets
+The agents read their API keys from a `.env` file in the directory you run them from. The repository does not ship a `.env.example`, so create `.env` yourself with the two keys the code looks up (`src/service/Tools.py`):
 
-Loading and preparation of data:
+    OPENAI_API_KEY=your-openai-key
+    SERPER_API_KEY=your-serper-key
 
-    make data /PROJECT_DIR/data/raw /PROJECT_DIR/data/interim
+`SERPER_API_KEY` is only needed by the agents that use web search (`financial_agent.py`, `planning_agent.py` and `tool_agent.py`). Do not commit `.env`.
 
-## Feature extraction
+## Running the agents
 
-    make features /PROJECT_DIR/data/interim /PROJECT_DIR/data/processed
+The agent scripts import `service.Tools`, so run them from inside `src/`:
 
-## Analysis
+    cd src
+    poetry run python simple_agent.py
+    poetry run python multi_agent.py
+    poetry run python tool_agent.py
+    poetry run python planning_agent.py
+    poetry run python financial_agent.py
 
-## Prediction
+`multi_agent.py`, `tool_agent.py`, `planning_agent.py` and `financial_agent.py` also import `crewai_tools`, which is not declared in `pyproject.toml` (see the comment there) and must be installed manually.
 
-    make train /PROJECT_DIR/data/processed
-    make predict /PROJECT_DIR/data/processed
+## FastAPI service
 
+    poetry run uvicorn src.agent_api:app --reload
+
+Then open `http://127.0.0.1:8000/` (example requests are in `tests/test_agent.http`).
+
+## Tests and linting
+
+    make test
+    make lint
+
+## Credits
+
+The course material this project is based on is "Multi AI Agent Systems with crewAI" by DeepLearning.AI, taught by Joao Moura, creator of crewAI. The goals section above follows the course description.
