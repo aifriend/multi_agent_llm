@@ -1,22 +1,33 @@
 [tool.poetry]
 name = "multi-agents"
 version = "0.1.0"
-description = "Multi Agents for After Life"
+description = "Multi-agent LLM examples built with CrewAI, plus a small FastAPI service"
 authors = ["Jose Lopez <33095863+aifriend@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
 package-mode = false
 
 [tool.poetry.dependencies]
-python = ">=3.11,<=3.13"
-click = "^8.1.7"
+python = ">=3.11,<3.13"
+crewai = "^0.28.8"
+# crewai-tools (^0.1.6) is intentionally not declared: every release that works with
+# crewai 0.28 requires lancedb<0.6, which has been removed from PyPI, so the
+# lock file cannot be resolved with it. The agent scripts that import
+# crewai_tools need it installed manually until they are migrated.
+langchain_community = "^0.0.29"
+langchain_openai = "*"
+fastapi = "*"
+rich = "*"
+python-dotenv = "*"
+pydantic = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+httpx = "*"
+ruff = "*"
+tox = "^4.15.0"
 coverage = "^7.5.0"
 flake8 = "^7.0.0"
-poetry = "^1.8.2"
-tox = "^4.15.0"
-crewai = "^0.28.8"
-crewai-tools = "^0.1.6"
-langchain_community = "^0.0.29"
 
 [build-system]
 requires = ["poetry-core"]
