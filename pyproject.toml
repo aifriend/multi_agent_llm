@@ -9,12 +9,12 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
-crewai = "^0.28.8"
+crewai = ">=0.80"
 # crewai-tools (^0.1.6) is intentionally not declared: every release that works with
 # crewai 0.28 requires lancedb<0.6, which has been removed from PyPI, so the
 # lock file cannot be resolved with it. The agent scripts that import
 # crewai_tools need it installed manually until they are migrated.
-langchain_community = "^0.0.29"
+langchain_community = ">=0.3.27"
 langchain_openai = "*"
 fastapi = "*"
 rich = "*"
